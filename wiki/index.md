@@ -11,6 +11,13 @@
 
 ---
 
+## 仓库信息
+
+- **远程仓库**：[hwh19980203-hue/Meigong](https://github.com/hwh19980203-hue/Meigong.git) — GitHub 远程仓库，用于版本控制和团队协作
+- **本地路径**：`D:\黑伞美工`
+
+---
+
 ## 实体 (Entities)
 
 <!-- LLM 在此维护实体页面的索引 -->
