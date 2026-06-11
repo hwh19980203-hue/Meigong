@@ -100,3 +100,41 @@
 - 更新 [[wiki/workflows/AI驱动美工工作流]]：修正标准输入表链接、目录链接和提示词模板链接
 - 创建 [[wiki/concepts/提示词工程]] 和 [[wiki/workflows/AI生图提示词模板]]
 - 将 [[wiki/sources/2026-06-10-AI生成内容侵权风险]] 中的待创建合规链接统一指向 [[wiki/concepts/AI内容侵权风险与合规]]
+
+## [2026-06-11] ingest | 768-波西米亚教室装饰案例
+
+- 摄入来源：`D:\BaiduNetdiskDownload\黑伞美工历史完成图片库\768`
+- 复制原始案例包到 `raw/cases/768-波西米亚教室装饰/`
+- 摄入内容：开发需求 Word 文档、7 张主图、5 张 A+ 图、自动提取需求文本、成果图总览
+- 创建案例页面：[[wiki/cases/768-波西米亚教室装饰]]
+- 创建产品页面：[[wiki/products/768-波西米亚教室装饰]]
+- 更新 [[wiki/cases/index]]、[[wiki/products/index]] 和 [[wiki/index]]
+
+## [2026-06-11] update | 增加所属店铺字段
+
+- 在 [[wiki/templates/AI作图任务标准输入表]] 中新增“所属店铺”字段，并加入必填项说明
+- 更新 [[wiki/workflows/Codex调用GPT作图工作流]] 和 [[wiki/workflows/AI生图提示词模板]]，要求生成 Brief 和提示词时考虑店铺风格
+- 更新现有产品页和案例页，统一加入“所属店铺：待补充”
+- 更新 `AGENTS.md`，将“所属店铺”列为产品页、案例页和作图输入表的固定字段
+
+## [2026-06-11] update | 补充 768 产品信息
+
+- 更新 [[wiki/products/768-波西米亚教室装饰]]：目标站点 `US`、所属店铺 `WOODOUNAI`、实际上架 ASIN `BOGXXMLZ3S`、内部评价 `还行`、返工记录 `无`
+- 同步更新 [[wiki/cases/768-波西米亚教室装饰]] 的案例字段
+- 更新 [[wiki/index]]、[[wiki/products/index]]、[[wiki/cases/index]] 中的 768 条目描述
+
+## [2026-06-11] ingest | 历史完成图片库剩余案例
+
+- 摄入来源：`D:\BaiduNetdiskDownload\黑伞美工历史完成图片库`
+- 复制剩余 3 个项目到 `raw/cases/`：764、771、777
+- 每个项目均包含：开发需求 Word 文档、7 张主图、5 张 A+ 图、自动提取需求文本、成果图总览
+- 创建案例页面：[[wiki/cases/764-适合女孩旅行的凉毛巾]]、[[wiki/cases/771-女生储物柜整理器]]、[[wiki/cases/777-高尔夫球派对装饰品]]
+- 创建产品页面：[[wiki/products/764-适合女孩旅行的凉毛巾]]、[[wiki/products/771-女生储物柜整理器]]、[[wiki/products/777-高尔夫球派对装饰品]]
+- 更新 [[wiki/cases/index]]、[[wiki/products/index]] 和 [[wiki/index]]
+
+## [2026-06-11] update | 补充 764/771/777 产品信息
+
+- 更新 [[wiki/products/764-适合女孩旅行的凉毛巾]] 与 [[wiki/cases/764-适合女孩旅行的凉毛巾]]：店铺 `LeoMora`、ASIN `B0GXDJ2WCM`、内部评价 `一般`、返工 `无`
+- 更新 [[wiki/products/771-女生储物柜整理器]] 与 [[wiki/cases/771-女生储物柜整理器]]：店铺 `LeoMora`、ASIN `B0GXCPK4LX`、内部评价 `一般`、返工 `无`
+- 更新 [[wiki/products/777-高尔夫球派对装饰品]] 与 [[wiki/cases/777-高尔夫球派对装饰品]]：店铺 `AOTIAN-HF`、ASIN `B0GYX9LNNB`、内部评价 `一般`、返工 `无`
+- 同步更新 [[wiki/index]]、[[wiki/products/index]]、[[wiki/cases/index]]
