@@ -1,0 +1,15 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace
+.obsidian/cache
+.obsidian/plugins/better-word-count/data.json
+.trash/
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Git
+*.bak
+*.swp
