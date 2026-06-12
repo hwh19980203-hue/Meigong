@@ -13,3 +13,19 @@ desktop.ini
 # Git
 *.bak
 *.swp
+
+# AI agent cache
+.agents/
+.claude/
+.claudian/
+
+# Temp & output
+tmp/
+output/
+tools/
+
+# Contract artifacts
+contract-*.b64
+
+# Empty drafts
+未命名.md
