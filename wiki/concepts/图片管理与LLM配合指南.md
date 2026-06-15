@@ -40,7 +40,9 @@ LLM（如 Claude）是**多模态**的——可以直接看懂图片内容（构
 - 重点突出：产品防水功能
 
 ## 参考图片
+```markdown
 ! [ [ raw/assets/product-a-aplus-main.jpg ] ]
+```
 ```
 
 **效果**：LLM 先理解上下文，再按需看图，效率和准确性更高。
