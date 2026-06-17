@@ -55,6 +55,8 @@ tags:
 - 不要出现水印、官方认证标识、无授权商标
 - 不要套用竞品构图
 - 不要添加产品不存在的配件
+- 准确代表实际销售商品，不改变实物颜色、材质、结构、数量和尺寸比例
+- 美化只限于清洁背景、基础修图、光线校正和合理摆放，不做幻想化升级
 
 输出：
 - 生成多个方案
@@ -83,6 +85,51 @@ tags:
 - 装饰挂件是否误替代了字母
 
 示例：新娘派对装饰的金色拉旗必须是 `Bride to Be` + 结尾独立钻戒挂件；`Bride` 不能少 `e`，`Be` 后的钻戒挂件不能丢，也不能替代任何字母。
+
+## 亚马逊真实性约束
+
+亚马逊商品图的第一目标是准确代表所售商品。AI 可以帮助清洁、摆放和增强可读性，但不能把产品变成“更高级但不真实”的版本。
+
+提示词必须写清：
+
+```markdown
+Use a realistic product-composite style.
+Accurately match the photographed product colors, materials, shapes, proportions, and included item counts.
+Retouch only for cleanliness, lighting, and presentation.
+Do not beautify into a different product.
+Do not add props or accessories that are not included in the package.
+Do not change paper, fabric, foil, balloon, or printed-text materials into more premium materials.
+```
+
+质检必须检查：
+
+- 颜色是否和实拍一致
+- 形状/结构是否和实拍一致
+- 数量是否和包装清单一致
+- 材质是否被 AI “升级”成不真实效果
+- 场景道具是否会让买家误以为包含在套装内
+
+## 产品实拍图优先约束
+
+AI 出图必须以产品实拍图为唯一产品外观依据。此约束优先级高于所有构图、风格和场景要求。
+
+提示词必须写清：
+
+```markdown
+## 产品实拍图优先指令
+本任务的唯一产品外观依据是附带的实拍图（Reference Photos）。
+实拍图决定：产品颜色、材质、结构、形状、配件、数量、包装和标签。
+参考图/竞品图（Reference Images）仅用于构图、氛围、场景和风格参考。
+如果参考图与实拍图在产品外观上冲突，以实拍图为准。
+不要为了贴近参考图的视觉效果而改变产品的实际外观。
+```
+
+Codex 生成提示词时必须遵守的规则：
+
+1. 如果实拍图与参考图在产品颜色/材质/结构/数量上冲突，以实拍图为准
+2. 如果实拍图显示了某个部件（如白色塑料手柄），但参考图中该部件是另一种材质（如木色），按实拍图还原
+3. 如果实拍图显示产品是纯白色，但参考图中产品有花纹，按实拍图还原
+4. 美工质检时，必须打开实拍图逐图比对，不能凭记忆或参考图判断
 
 ## 白底主图模板
 

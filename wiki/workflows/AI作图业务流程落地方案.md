@@ -67,6 +67,8 @@ flowchart TB
 
 产品开发必须先填写 [[wiki/templates/AI作图任务标准输入表]]，并提供真实产品资料。
 
+如果该产品已在飞书多维表格 `新品开发总表` 中建档，优先走 [[wiki/workflows/飞书多维表格到AI作图需求流转]]：Codex 先按 `编号` 或 `SKU` 自动读取产品基础信息，再让开发填写 [[wiki/templates/AI作图需求缺口补充表]] 中缺失的图片表达字段。
+
 最低必填：
 
 - 产品名称、ASIN/SKU、所属店铺
@@ -241,6 +243,8 @@ GPT 负责批量生成方案，美工负责筛选、修正和精修。
 ## 参见
 
 - [[wiki/templates/AI作图任务标准输入表]]
+- [[wiki/templates/AI作图需求缺口补充表]]
+- [[wiki/workflows/飞书多维表格到AI作图需求流转]]
 - [[wiki/workflows/Codex调用GPT作图工作流]]
 - [[wiki/workflows/AI驱动美工工作流]]
 - [[wiki/workflows/AI生图提示词模板]]
