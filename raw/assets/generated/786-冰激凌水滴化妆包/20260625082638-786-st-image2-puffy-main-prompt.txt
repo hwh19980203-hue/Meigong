@@ -1,0 +1,24 @@
+Create an Amazon main product image for a 12-piece ice cream drip makeup bag set.
+
+Use the provided reference photos as the strict product appearance source. Preserve the pouch shape, fabric texture, zipper position, metal zipper pull, the ice cream drip pattern with colored frosting and sprinkles, and the six color variants exactly as shown in the references.
+
+Important product form: each pouch should look softly filled and slightly puffy, like a real fabric cosmetic bag with gentle volume inside. Keep the pouch body rounded and dimensional with subtle fabric tension, but do not overinflate it and do not change the real silhouette, zipper placement, printed pattern, or proportions.
+
+Show 12 makeup bags total: 6 color designs, 2 bags per design. Arrange in a neat 4-column x 3-row grid on a pure white background (RGB 255,255,255). Color order from top-left to bottom-right: blue-white, purple-white, yellow-white, green-white, pink-white, chocolate-white (2 bags of each color placed side by side). All pouches facing forward, zippers aligned horizontally.
+
+Products should be centered, clearly visible, and occupy about 80-85% of the square frame. Soft diffused studio lighting from both sides to highlight fabric texture, soft volume, and create subtle metallic shine on zipper pulls.
+
+No text, no logos, no watermarks, no badges, no props, no hands, no lifestyle background, no packaging. Do not invent new colors, new patterns, new accessories, or different pouch shapes. Keep the product realistic, sharp, and suitable for an Amazon main image.
+
+Output size: 1600x1600 pixels.
+
+Endpoint: /v1/images/generations
+Model: image2
+Size: 1024x1024
+References:
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-1-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-2-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-3-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-4-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-5-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-6-900.jpg

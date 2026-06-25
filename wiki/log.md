@@ -7,6 +7,232 @@
 
 <!-- LLM 在此追加新记录 -->
 
+## [2026-06-25] complete | 786 冰激凌水滴化妆包 7 张主图全部完成
+
+### 首图（ST）
+- 模型：otuapi `image2`（Banana 不可用，回退 image2）
+- 最终版本：v6（经过 6+ 轮拉链迭代）
+- 关键纠错：双拉链→单左上角拉链→朝下垂→拉链大小和包宽度调整
+- 拉链实拍图补充：导入 `786-real-zipper-1.jpg` 和 `786-real-zipper-2.jpg` 到 `raw/cases/786-马艳丽/`
+- 稳定资产：`raw/assets/generated/786-main-image-v6.png`
+- 交付：`output/imagegen/786-冰激凌水滴化妆包/主图/786-ST-main-1600.png`
+
+### 6 张附图
+| 图片 | 生成资产 | 交付文件 |
+|------|---------|---------|
+| 02 颜色数量尺寸 | `786-image-02-colors-size.png` | `附图/786-02-colors-size.png` |
+| 03 CCT场景 | `786-image-03-cct-scene.png` | `附图/786-03-cct-scene.png` |
+| 04 细节图 XJT | `786-image-04-details.png` | `附图/786-04-details.png` |
+| 05 场景图1 | `786-image-05-scene-table.png` | `附图/786-05-scene-table.png` |
+| 06 4格分镜 | `786-image-06-4panel-scene.png` | `附图/786-06-4panel-scene.png` |
+| 07 场景图3 | `786-image-07-scene-gift.png` | `附图/786-07-scene-gift.png` |
+
+### 其他维护
+- Word 样图命名修复：word-2~8 → word-1~7（重新从 docx 提取确认 7 张图片）
+- 原始文档修复（PowerShell 级联替换导致的全部 word-7→word-1 损坏）
+- AGENTS.md 和 Otuapi 工作流更新：强制所有模型传递参考图
+- 更新 [[wiki/cases/786-冰激凌水滴化妆包]]、[[wiki/products/786-冰激凌水滴化妆包]]、[[wiki/index]]、[[wiki/cases/index]]
+
+## [2026-06-25] update | 固化 otuapi Banana 图片接口路径
+
+- 将 `tools/otuapi-image-mcp/` 从 `tools/` 忽略规则中放出，准备作为项目内固定 MCP 工具维护；`node_modules/` 继续忽略。
+- 固化 `nano_banana_2`、`nano_banana_pro-*` 路由：`POST /v1/videos` 创建异步任务，`GET /v1/videos/{task_id}` 轮询并下载结果图。
+- 保留 `gemini-3-pro-image-preview`、`gemini-3.1-flash-image-preview` 的 `/v1beta/models/{model}:generateContent` 同步路径。
+- 记录跨窗口使用要求：另一个已打开的 Codex 窗口需要重启或重载 MCP，才能看到 `model`、`api_format` 等新参数。
+
+## [2026-06-25] update | 从飞书总表补齐 786 作图基础信息
+
+- 读取飞书 `新品进度总表 / 新品开发总表` 编号 `786`，记录 `recvgW5tByIeUp`
+- 提取字段：SKU `US02-MYL-XLH-FBA-034`、ASIN `B0GZP37NYT`、站点 `US`、品牌/店铺 `WOODOUNAI`、关键词 `12 Pcs Ice Cream Drip Makeup Bags`、材质 `布`、尺寸重量、包装、首批数量、安审 `可以下单`
+- 更新 [[wiki/products/786-冰激凌水滴化妆包]]：补齐飞书字段、来源记录、关键词链接和参考图附件 token
+- 更新 [[wiki/cases/786-冰激凌水滴化妆包]]、[[wiki/products/index]]、[[wiki/cases/index]] 和 [[wiki/index]]
+
+## [2026-06-23] regenerate | 按本地提示词重做 773 A+ 02–05
+
+- 根据用户反馈保留 A+ 01 英雄氛围图
+- 重新读取 [[wiki/products/773-两套God Bless拉旗装饰#2026-06-17 A+ 图片提示词方案]]
+- A+ 02 按套装内容提示词重排：双套产品、24 片旗片、8 个十字架、8 个蝴蝶结及标准英文标签
+- A+ 03 按材质细节提示词重排：完整产品 + 单张纸、预打孔、粉色绳子、粉色蝴蝶结四项真实细节
+- A+ 04 按安装提示词重排：`Thread / Tie / Hang` 三步骤
+- A+ 05 重新生成不含产品的单一宗教庆典背景，再合成锁定产品母版
+- 替换 `output/imagegen/773-两套God Bless拉旗装饰/A+/` 中的 02–05，01 保持不变
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]、[[wiki/cases/773-两套God Bless拉旗装饰]] 和文件清单
+
+## [2026-06-22] regenerate | 按产品母版锁定规则重做 773 A+ 五图
+
+- 使用用户确认首图建立透明单套与双套产品母版：`raw/assets/generated/773-god-bless-locked-master/`
+- 产品母版通过透明背景验证，白色旗片内部、粉色边缘、孔位、绳子、蝴蝶结、字母和十字架均保留
+- 调用 otuapi `image2` 仅生成 A+ 01、05 的无产品背景，提示词明确禁止拉旗、文字、十字架和悬挂装饰
+- A+ 01、05 使用锁定产品母版与 AI 背景分层合成
+- A+ 02、03、04 使用产品母版及原图局部切片进行确定性排版，未调用 AI 重绘产品
+- 完成 5 张 `970×600` A+ v3 图片，并替换 `output/imagegen/773-两套God Bless拉旗装饰/A+/` 中的暂停交付版本
+- 更新 [[wiki/analyses/2026-06-22-773-A+产品变形失误复盘]]、[[wiki/products/773-两套God Bless拉旗装饰]]、[[wiki/cases/773-两套God Bless拉旗装饰]] 及各级索引
+
+## [2026-06-22] retrospective | 记录 773 A+ 产品变形失误并建立硬门禁
+
+- 创建 [[wiki/analyses/2026-06-22-773-A+产品变形失误复盘]]
+- 确认失误：A+ 采用整图生成/改图，虽然字母与数量正确，但旗片轮廓、比例、波浪边、尖角、孔位和十字架造型相对首图发生漂移
+- 修正 [[wiki/cases/773-两套God Bless拉旗装饰]]：主图保留为产品母版，当前 A+ 标记为产品外形不合格并暂停交付
+- 更新 [[wiki/concepts/AI出图失真防治清单]]：新增“衍生图累计变形”和 773 实战案例
+- 更新 [[wiki/workflows/Otuapi做图接口工作流]]：强制使用“固定产品抠图 + AI 无产品背景 + 分层合成”
+- 更新 [[wiki/standards/设计交付规范]]：新增产品母版一致性一票否决门禁
+- 更新 `AGENTS.md`：后续所有 A+、场景图和广告图必须锁定已确认产品母版
+- 更新 [[wiki/index]] 的专题分析索引
+
+## [2026-06-21] deliver | 完成 773 v2 主图与 A+ 返工交付
+
+- 使用 otuapi `image2` 按参考图改图，完成 7 张主图和 5 张 A+ v2 终版
+- 固定结构：每套上层 `十字架 + GOD + 十字架`、下层 `十字架 + BLESS + 十字架`，每套 12 片、4 个十字架；两套 24 片、8 个十字架
+- A+ 02 额外返工两轮：先修正 `GOD` 两侧十字架，再补齐两套合计 8 个蝴蝶结
+- 主图生成资产：`raw/assets/generated/773-god-bless-v2/`
+- A+ 生成资产：`raw/assets/generated/773-god-bless-a-plus-v2/`
+- 主图正式交付：`output/imagegen/773-两套God Bless拉旗装饰/主图/`（7 张 `1600×1600` PNG）
+- A+ 正式交付：`output/imagegen/773-两套God Bless拉旗装饰/A+/`（5 张 `970×600` PNG）
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]、[[wiki/cases/773-两套God Bless拉旗装饰]]、[[wiki/workflows/AI生图提示词模板]]、[[wiki/index]]、[[wiki/products/index]] 和 [[wiki/cases/index]]
+- 评分与开发合规确认仍待产品开发补充
+
+## [2026-06-21] resume | 恢复 773 未完成返工
+
+- 根据旧线程索引、知识库日志和交付目录恢复 773 上次中断状态
+- 核实 `output/imagegen/773-两套God Bless拉旗装饰/A+/00-待重做说明.txt`：旧主图和旧 A+ 均缺少 `GOD` 两侧十字架，不可正式交付
+- 将 [[wiki/products/773-两套God Bless拉旗装饰]]、[[wiki/cases/773-两套God Bless拉旗装饰]] 及各级索引从“已完成/定版”纠正为“返工中”
+- 向 [[wiki/workflows/AI生图提示词模板]] 增加“固定数量与固定位置结构约束”，沉淀逐项顺序、分组数量和符号位置质检规则
+- 调用 otuapi `image2` 尝试生成 A+ 01 校准样张，接口在 5 分钟处超时且未落盘；后续需继续重做 7 张主图和 5 张 A+，通过数量与位置质检后再进入正式交付目录
+
+## [2026-06-21] monitor | AI 作图周生产监控
+
+- 创建 [[wiki/analyses/2026-06-21-AI作图周报]]
+- 统计窗口：2026-06-15 至 2026-06-21
+- 结论：本周实际新完成套图 1 套（773），当前节奏低于月均 15 套目标
+- 发现主要缺口：评分字段缺失、开发确认字段缺失、782/787 产品页信息不完整、773 优秀经验尚未上升到模板/工作流层
+- 更新 [[wiki/index]] 的分析区条目
+
+## [2026-06-18] correction | 修正 773 十字架数量与完整排版
+
+- 人工复核确认每套正确排版：上层 `十字架 + GOD + 十字架`，下层 `十字架 + BLESS + 十字架`
+- 每套共 12 片旗片，其中 4 个十字架旗片；两套合计 24 片旗片、8 个十字架旗片
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]] 的产品事实、最终约束和 5 条 A+ 提示词
+- 更新 [[wiki/cases/773-两套God Bless拉旗装饰]]，将缺少 `GOD` 两侧十字架的旧主图和旧 A+ 标记为失效待重做
+- 原图片保留作历史记录和修改底图，不删除、不覆盖
+
+## [2026-06-18] update | 启用 AI 作图双层保存与交付结构
+
+- 生成资产统一保存到 `raw/assets/generated/`：包含 API 原图、修改版本、总览图和知识库长期引用资产
+- 正式交付统一保存到 `output/imagegen/[编号-产品名]/`：只保留质检通过、尺寸正确、命名清晰的终版图片
+- Wiki 继续引用 `raw/assets/generated/`，同时在产品页和案例页记录正式交付目录，避免交付文件调整后造成知识库断链
+- 更新 `AGENTS.md`、[[wiki/workflows/Otuapi做图接口工作流]] 和 [[wiki/standards/设计交付规范]]
+- 已将 773 的 5 张 A+ 终版复制到 `output/imagegen/773-两套God Bless拉旗装饰/A+/`
+
+## [2026-06-18] generate | 生成并归档 773 A+ 五图
+
+- 按 [[wiki/products/773-两套God Bless拉旗装饰#2026-06-17 A+ 图片提示词方案]] 中更新后的 5 条提示词调用 otuapi `image2`
+- 生成 5 张 `1792×1024` 原始图，并输出完整保留内容的 `970×600` A+ 交付版
+- 成果目录：`raw/assets/generated/773-god-bless-a-plus/`
+- 质检确认：`GOD / BLESS` 顺序正确、无错误 `A` 字母旗片、材质标签为 `Single Paper Sheet`、粉色绳子与粉色蝴蝶结正确、旗片无明显变形
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]、[[wiki/cases/773-两套God Bless拉旗装饰]]、[[wiki/index]]、[[wiki/products/index]] 和 [[wiki/cases/index]]
+
+## [2026-06-25] ingest | 摄入 786-冰激凌水滴化妆包
+
+- 创建原始资料目录 `raw/cases/786-马艳丽/`
+- 摄入开发文档：`786-马艳丽产品文档.docx` + 提取文本 `786_extracted.txt`
+- 摄入 6 张实拍图（`786-real-1~6.jpg`）和 7 张 Word 样图（`786-word-1~7.png`）
+- 创建原始文档：[[raw/cases/786-马艳丽/786-冰激凌水滴化妆包.md]]
+- 创建产品页：[[wiki/products/786-冰激凌水滴化妆包]] — 冰激凌水滴6色化妆包（6色×2=12个/套），开发：马艳丽
+- 创建案例页：[[wiki/cases/786-冰激凌水滴化妆包]] — 7 张主图
+- 更新 [[wiki/index]]、[[wiki/products/index]] 和 [[wiki/cases/index]]
+
+## [2026-06-24] update | 摄入 Nano Banana 七大模板 + EvolveAMZ 框架
+
+- 创建 [[wiki/sources/2026-06-24-Nano Banana Pro亚马逊套图提示词模板]] — 7 大类型提示词模板（参考腾讯云开发者社区 / AMZ123 / 什么值得买）
+- 创建 [[wiki/sources/2026-06-24-AI电商摄影EvolveAMZ2026指南]] — 提示词六大要素、五步迭代工作流、合规红线（参考 EvolveAMZ）
+- 更新 [[wiki/workflows/AI生图提示词模板]]：新增"Nano Banana 七大提示词模板"章节，7 套模板中英对照可直接复用；新增"EvolveAMZ 提示词精炼框架"章节
+- 更新 [[wiki/workflows/AI生图提示词模板]]：新增"Banana（Nano Banana）提示词风格参考"章节，与 image2 风格对照，以 773 首图为对比示例
+- 更新 [[wiki/index]]：添加 2 条新来源条目
+
+## [2026-06-23] update | 记录亚马逊图片类型策略框架
+
+- 更新 [[wiki/concepts/AI生成电商主图]]：新增"亚马逊图片类型策略框架"章节
+- 框架定义：主图→抢点击（吸引力）、附图→建理解（功能痛点）、A+→强信任（品牌背书）、视频→促行动（催化下单）
+
+## [2026-06-25] update | 强制参考图传递规则
+
+- **问题发现**：Codex 调用 `generate_image` 时未传入实拍参考图，仅靠文字描述让 AI 想象产品外观，导致 773 A+ 产品形状漂移
+- **更新 [[AGENTS.md]]**：在"作图接口约定"新增"参考图强制传递"规则 — `generate_image` 调用时 `images` 参数为必传项，Codex 必须从产品页读取实拍图传入 API
+- **更新 [[wiki/workflows/Otuapi做图接口工作流]]**：步骤 4 增加"必须先读取产品页实拍参考图，通过 `images` 参数传入 API"的强制要求
+- **明确范围**：补充说明 `images` 参考图参数对所有模型生效——`image2`（`/v1/images/generations`）、`nano_banana_*`（`/v1/videos`）和 `gemini-*`（`generateContent`）均支持参考图输入
+
+## [2026-06-17] update | 记录 773 A+ 五图提示词方案
+
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：新增“2026-06-17 A+ 图片提示词方案”
+- 记录 5 张 A+ 图提示词：英雄氛围图、套装内容图、材质细节图、易安装步骤图、多场景适用图
+- 统一 A+ 约束：单张纸质旗片、粉色绳子、粉色蝴蝶结、禁止 `Double-Layer Paper`、禁止 `A` 字母旗片、保持 `GOD / BLESS` 拼写正确
+
+## [2026-06-17] update | 归档 773 image2 最终 7 张成果
+
+- 归档最终成果清单：`raw/assets/generated/773-god-bless/latest-01-07-final-api-corrected.txt`
+- 归档成果总览：`raw/assets/generated/773-god-bless/20260617-773-god-bless-final-contact-sheet-api-corrected.png`
+- 更新 [[wiki/cases/773-两套God Bless拉旗装饰]]：新增“2026-06-17 AI 出图成果”章节，嵌入 7 张最终图并记录质检要点
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：新增 image2 出图成果记录，明确最终约束：单张纸质旗片、粉色绳子、图 2 删除错误 `A` 旗片、图 2/3 使用 `Single Paper Sheet`
+- 同步更新 [[wiki/index]]、[[wiki/products/index]] 和 [[wiki/cases/index]]
+
+## [2026-06-17] update | 补充 773 自动预填字段
+
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：同步编号、SKU、ASIN `B0GZNVZ6YH`、站点 `US`、店铺 `AOTIAN-HF`、核心关键词、材质、做法、双面印刷特性、尺寸重量、包装信息、安审状态以及“是否作图/是否作 A+”字段
+- 更新 [[wiki/cases/773-两套God Bless拉旗装饰]]：补齐店铺 `AOTIAN-HF`、ASIN `B0GZNVZ6YH`，并按本次表格记录作图/A+ 状态为 `空`
+- 同步更新 [[wiki/index]] 与 [[wiki/cases/index]] 中的 773 案例条目
+
+## [2026-06-17] update | 修正 773 GOD/BLESS 排版与 G 字母比例
+
+- 根据用户提供的首图参考和 `20260617-123821.267-8.jpg` 实拍 G 字母，重跑 773 粉白款 7 张套图
+- 修正规则：上方为 `GOD`，下方为左十字架 + `BLESS` + 右十字架；`G` 必须为正常大写衬线字母，比例与 `O/D` 一致，不得变形、过大或写成错误形态
+- 检查过程中发现第 6 张两套组合图第一次重跑漏了一个 `S`，已改为“一套完整挂起 + 第二套平铺配件”的提示词策略，降低 AI 漏字风险
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：新增“2026-06-17 修正版提示词规则”
+
+## [2026-06-17] update | 记录 773 粉白款 7 张套图 AI 提示词
+
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：新增“AI 作图提示词记录”
+- 记录 7 张图提示词：首图 ST、尺寸数量图 CCT、细节图、场景图 1、场景图 2、两套组合场景图、完整派对背景图
+- 统一产品约束：粉白双层纸质旗片、粉色字母/十字架、粉色蝴蝶结、白色绳子，禁止金色、金属质感和不符合实拍图的元素
+
+## [2026-06-16] update | 确认 773 颜色以案例页粉白款为准
+
+- 根据用户指示查看 [[wiki/cases/773-两套God Bless拉旗装饰]]
+- 案例页明确图片清单：首图为“两套拉旗共四条 + 粉色字母/十字架 + 粉色蝴蝶结配件组合展示”，细节图为“粉白双层纸质旗片材质、粉色字母印刷、纸片边缘、穿孔位置和绳子质感”
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：将“颜色冲突待确认”改为“颜色依据”，确认后续作图按粉白款执行；开发文档中“金色十字架/金色字母”的旧文字描述不再作为作图依据
+
+## [2026-06-16] update | 补充 773 飞书字段并修正实拍颜色依据
+
+- 飞书 `新品开发总表` 查询编号 `773`：SKU `08US-FBA-ZLM-XLH-001`，ASIN `B0GZNVZ6YH`，店铺 `AOTIAN-HF`，关键词 `God Bless Banner`
+- 读取开发文档：`D:\黑伞美工知识库\773-两套God Bless拉旗装饰.md`
+- 查看实拍图文件夹：`D:\黑伞美工知识库\773-两套God Bless拉旗装饰_images\`，共 9 张 JPG
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：补充飞书字段、当前开发文档路径、实拍图路径、实拍产品特征和作图注意点
+- 标记冲突：开发文档文字提到“金色十字架/金色字母”，但当前实拍图显示为粉白双层纸质旗片、粉色字母/十字架和粉色蝴蝶结；后续作图默认以实拍粉白款为准，金色版本需开发另补实拍图
+- 更新 [[wiki/products/index]] 和 [[wiki/index]] 中 773 产品描述
+
+## [2026-06-16] fix | 重命名 773 图片为简洁文件名 + 嵌入到图片任务区
+
+- 重命名 17 张图片：去掉文件名中的多小数点（`20260617-123821.267-1.jpg` → `773-st-1.jpg`），避免 Obsidian 解析异常
+- 重命名 Word 样图：`image2.jpeg`~`image9.png` → `773-word-*.png`
+- 重构 [[wiki/products/773-两套God Bless拉旗装饰]]：图片任务区每张图下面直接嵌入对应的实拍参考图和 Word 样图
+- 更新 [[wiki/cases/773-两套God Bless拉旗装饰]]：嵌入全部 7 张样图
+- 同步更新 raw 原始 Markdown 中的所有图片引用路径
+
+## [2026-06-16] update | 补充 773 Word 原始开发文档和 8 张嵌入样图
+
+- 从 `C:\Users\Q\Downloads\773两套God Bless拉旗装饰.docx` 提取 8 张嵌入样图（image2.jpeg ~ image9.png）和自动提取文本（773_extracted.txt）
+- 复制 Word 文档和提取文本到 `raw/cases/773-两套God Bless拉旗装饰/`
+- 更新原始 Markdown 文档：修复图片路径（从子目录改为同级引用），每张图新增 Word 样图补充折叠区
+- 更新 [[wiki/products/773-两套God Bless拉旗装饰]]：新增来源资料章节
+- 更新 [[wiki/cases/773-两套God Bless拉旗装饰]]：新增 Word 文档和提取文本引用
+
+## [2026-06-16] ingest | 773-两套God Bless拉旗装饰
+
+- 摄入来源：`D:\黑伞美工知识库\773-两套God Bless拉旗装饰.md` + 9 张实拍/参考图片
+- 复制原始资料到 `raw/cases/773-两套God Bless拉旗装饰/`
+- 创建产品页面：[[wiki/products/773-两套God Bless拉旗装饰]] — 两套 God Bless 拉旗装饰（定制产品），含金色十字架和字母"I"配件，7 张主图（不含 A+），美国站
+- 创建案例页面：[[wiki/cases/773-两套God Bless拉旗装饰]]
+- 更新 [[wiki/index]]、[[wiki/products/index]]、[[wiki/cases/index]]
+
 ## [2026-06-15] update | 强化实拍图采集和处理规则：以实拍图为准
 
 - 更新 [[wiki/workflows/飞书多维表格到AI作图需求流转]]：在"产品实拍图处理规则"中新增"总则：实拍图采集以实物为准"，明确采集/核对/使用/质检四个阶段必须以实际产品实物为准
@@ -225,3 +451,44 @@
 - 更新 [[wiki/products/771-女生储物柜整理器]] 与 [[wiki/cases/771-女生储物柜整理器]]：店铺 `LeoMora`、ASIN `B0GXCPK4LX`、内部评价 `一般`、返工 `无`
 - 更新 [[wiki/products/777-高尔夫球派对装饰品]] 与 [[wiki/cases/777-高尔夫球派对装饰品]]：店铺 `AOTIAN-HF`、ASIN `B0GYX9LNNB`、内部评价 `一般`、返工 `无`
 - 同步更新 [[wiki/index]]、[[wiki/products/index]]、[[wiki/cases/index]]
+
+## [2026-06-17] update | otuapi 做图接口接入
+
+- 在 `C:\Users\Q\.codex\config.toml` 中配置 `otuapi_image` MCP server，供 Codex 调用 otuapi 图片接口。
+- 在用户环境变量和 `C:\Users\Q\.codex\.env` 中保存 `OTUAPI_API_KEY`，不写入知识库页面。
+- 更新 `tools/otuapi-image-mcp/server.mjs`，支持从 `C:\Users\Q\.codex\.env` 读取密钥。
+- 更新 `AGENTS.md`，将 otuapi 作为黑伞美工作图请求的首选工具。
+- 创建 [[wiki/workflows/Otuapi做图接口工作流]]，记录调用方式、保存目录和密钥管理规则。
+- 已完成真实接口测试，输出测试图到 `raw/assets/generated/`。
+
+## [2026-06-25] imagegen | 生成 786 冰激凌水滴化妆包首图
+
+- 使用 6 张实拍参考图生成 786 首图草稿：12个化妆包、6色各2个、4×3 白底排列。
+- 按用户要求将空包表现为柔软鼓鼓的饱满状态，并检查每个包只保留单条拉链和单个拉链头。
+- 稳定资产：`raw/assets/generated/786-冰激凌水滴化妆包/20260625082638-786-st-image2-puffy-main-1600.png`
+- 交付文件：`output/imagegen/786-冰激凌水滴化妆包/786-main-puffy-1600.png`
+- 更新 [[wiki/products/786-冰激凌水滴化妆包]] 与 [[wiki/cases/786-冰激凌水滴化妆包]]。
+
+## [2026-06-25] imagegen | 更新 786 首图为更明显鼓包效果
+
+- 参考用户补充的单包样图，将 12 个化妆包统一改为更厚底、更圆角、更有内部填充感的鼓包效果。
+- 保持 4×3 排列、6色各2个、冰激凌水滴图案、华夫格下半部分和每个包单拉链头不变。
+- 新版稳定资产：`raw/assets/generated/786-冰激凌水滴化妆包/20260625085032-786-st-extra-puffy-main-1600.png`
+- 新版交付文件：`output/imagegen/786-冰激凌水滴化妆包/786-main-extra-puffy-1600.png`
+
+## [2026-06-25] imagegen | 补充 786 新版实拍并重生成首图
+
+- 新增新版鼓包实拍图：`raw/cases/786-马艳丽/786-real-7-updated-puffy-purple.jpg`，作为真实站立包身、弧形上沿、底部厚度和布纹的主参考。
+- 基于新版实拍优化首图提示词，明确 Image 2 为“新版真实产品形态主参考”，避免只按文字或旧图想象鼓包效果。
+- 新版稳定资产：`raw/assets/generated/786-冰激凌水滴化妆包/20260625090517-786-st-new-real-puffy-main-1600.png`
+- 新版交付文件：`output/imagegen/786-冰激凌水滴化妆包/786-main-new-real-puffy-1600.png`
+- 提示词归档：`raw/assets/generated/786-冰激凌水滴化妆包/20260625090517-786-st-new-real-puffy-main-prompt.txt`
+
+## [2026-06-25] imagegen | 按正确形状布局参考完善 786 首图
+
+- 参考 `raw/assets/generated/786-main-image-shape-correct.png` 的立体包身、4×3布局、底部支撑感和拉链向下摆的感觉，重新生成 786 首图。
+- 在提示词中明确排除参考图里的错误拉链数量，并要求每个包只保留单条拉链和单个金属拉链头。
+- 同时修正参考图纹路不清晰的问题，要求华夫格纹、布纹、冰激凌水滴和 sprinkle 图案保持清晰连续。
+- 稳定资产：`raw/assets/generated/786-冰激凌水滴化妆包/20260625091610-786-st-shape-layout-zipper-down-main-1600.png`
+- 交付文件：`output/imagegen/786-冰激凌水滴化妆包/786-main-shape-layout-zipper-down-1600.png`
+- 提示词归档：`raw/assets/generated/786-冰激凌水滴化妆包/20260625091610-786-st-shape-layout-zipper-down-main-prompt.txt`

@@ -1,0 +1,29 @@
+Create Amazon A+ image 04 for product 773 God Bless banner set, wide 16:9, clean instructional layout.
+
+Goal: improve the easy assembly page so no letter or symbol looks strangely cropped. Do not cut through any printed letter, cross symbol, or flag. Avoid half letters, half flags, and cropped text inside the step cards.
+
+Use input image 1 only as the three-card page layout reference. Use input images 2 and 3 for real material close-up references. Use input image 4 for complete banner appearance.
+
+Title at top, rendered clearly and exactly: "Easy Assembly in 3 Steps".
+
+Three vertical cards with rounded pink borders:
+1. THREAD - show close-up of pre-punched holes and pink string threading through blank flag corners only. No letters, no cross symbols, no cropped printed graphics in this card.
+2. TIE - show close-up of the pink bow tied on the pink string. No letters, no cross symbols, no cropped printed graphics in this card.
+3. HANG - show the complete banner set fully visible with generous padding; no clipping. Exact layout: top strand Cross + G + O + D + Cross; lower strand Cross + B + L + E + S + S + Cross. Exactly 12 single paper pennant flags and exactly 4 cross flags.
+
+Product appearance: white paper pennant main body, pink scalloped decorative border around the white center, pink serif letters/crosses printed on the white front only, small punched holes, pink string, soft pink bows, realistic paper craft texture.
+
+Use only the short step labels "THREAD", "TIE", "HANG". Keep all visible letters complete and readable. No A letter flag, no wrong spelling, no missing crosses, no white string, no gold, no glitter, no watermark, no brand logo.
+
+Endpoint: /v1/videos
+Task endpoint: /v1/videos/{task_id}
+Model: nano_banana_2
+Aspect ratio: 16:9
+Task ID: task_OKXBjuhVMsinVrU9Q1H7y7ccEMs2PizF
+Result URL: https://videos-us3.ss2.life/file2/06079eb813fc402cb1415ac96734d2c2.png
+
+References:
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v5-candidates\20260623-773-a-plus-v5-04-complete-steps-970x600.png
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v4-prompts\source\detail.jpg
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v4-prompts\source\bow.jpg
+D:\黑伞美工\raw\assets\generated\773-god-bless-locked-master\20260622-773-approved-single-set-clean-transparent.png

@@ -1,0 +1,34 @@
+Edit the provided 12-piece Amazon main image for product 786.
+
+Image roles:
+- Image 1 is the layout target: keep the exact 4-column x 3-row arrangement, 12 total bags, six color designs, two bags per design, white background, and overall product scale.
+- Images 2-7 are the strict product appearance references: preserve the real 786 ice cream drip makeup bag shape, fabric texture, zipper position, metal zipper pull, frosting/sprinkles, waffle-cone print, and six variants.
+- Image 8 is ONLY a volume reference: use its soft stuffed cosmetic-bag thickness, rounded side panels, bulging base, convex fabric front, arched top zipper line, and cushion-like fabric tension. Do not copy its pink color, pattern, angle, or single-product composition.
+
+Required change:
+Make every pouch in Image 1 noticeably more puffy and filled, similar to Image 8: a soft rectangular cosmetic pouch with visible internal volume, rounded bottom corners, thicker base, gently convex front surface, subtle side depth, realistic fabric tension, and natural soft shadows under each pouch. The bags should look like they contain soft filler inside, not flat empty fabric.
+
+Hard invariants:
+- Exactly 12 makeup bags total.
+- Exactly 6 color designs, 2 bags per design.
+- Keep the color order from top-left to bottom-right: blue-white, purple-white, yellow-white, green-white, pink-white, chocolate-white, two adjacent bags per color.
+- Keep all pouches front-facing in a neat 4-column x 3-row grid.
+- Each pouch must have exactly one horizontal zipper seam and exactly one metal zipper pull. No second zipper, no duplicate zipper pull, no extra pulls, no handles, no straps, no accessories.
+- Preserve the 786 ice cream drip pattern and waffle-cone lower print from the real product references.
+- Pure white Amazon main-image background, no text, no logo, no watermark, no props, no hands, no packaging.
+- Keep realistic ecommerce product photography, sharp details, soft diffused studio lighting.
+
+Output: square Amazon main image.
+
+Endpoint: /v1/images/edits, fallback /v1/images/generations
+Model: image2
+Size: 1024x1024
+References:
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-current-main-layout-1000.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-1-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-2-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-3-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-4-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-5-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-6-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-puffy-style-reference.jpg

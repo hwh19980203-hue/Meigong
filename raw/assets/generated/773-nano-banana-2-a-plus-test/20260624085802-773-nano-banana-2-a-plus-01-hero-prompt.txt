@@ -1,0 +1,23 @@
+Create Amazon A+ image 01 hero banner for product 773 God Bless banner set, wide 16:9, polished baptism / christening / confirmation celebration scene.
+
+Use input image 1 as the overall composition and atmosphere reference only: elegant white curtain backdrop, blush pink and white balloons, dessert table, flowers, cake and cupcakes, clean high-end Amazon A+ styling. Use input images 2 and 3 as the product appearance reference.
+
+Hero product: one complete pink-white God Bless banner set hanging prominently above the dessert table. Exact product layout: top strand Cross + G + O + D + Cross; lower strand Cross + B + L + E + S + S + Cross. Exactly 12 single paper pennant flags per set, exactly 4 cross flags, pink string and pink bows.
+
+Product appearance: white paper pennant main body, pink scalloped decorative border around the white center, pink serif letters/crosses printed on the white front only, small punched holes, realistic paper texture. Keep the banner crisp, readable, centered, and visually dominant.
+
+Add one tasteful headline, rendered clearly and exactly: "God Bless Celebration Decor". Keep the headline minimal and not covering the product.
+
+No gold, metallic finish, glitter, watermark, brand logo, extra letters, deformed flags, missing crosses, wrong spelling, or unrelated decorations.
+
+Endpoint: /v1/videos
+Task endpoint: /v1/videos/{task_id}
+Model: nano_banana_2
+Aspect ratio: 16:9
+Task ID: task_fqjDAaYUFcZTKauOIKMlOmObFcOJACGd
+Result URL: https://videos-us3.ss2.life/file2/f112b46b1e384500b4f75f3abd0df398.png
+
+References:
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v3-locked\20260622-773-a-plus-v3-01-hero-locked-970x600.png
+D:\黑伞美工\raw\assets\generated\773-god-bless-locked-master\20260622-773-approved-product-master.jpg
+D:\黑伞美工\raw\assets\generated\773-god-bless-locked-master\20260622-773-approved-single-set-clean-transparent.png

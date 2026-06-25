@@ -1,0 +1,40 @@
+Create an optimized Amazon main image for product 786, a 12-piece ice cream drip makeup bag set.
+
+Input image roles:
+- Image 1 is the layout reference: keep a clean 4-column x 3-row Amazon main-image arrangement with 12 total pouches and two pouches per color.
+- Image 2 is the NEW PRIMARY real product reference. Use it as the strict source for the filled pouch form: upright soft fabric body, real canvas weave, slightly curved pink zipper tape across the top, one metal zipper pull at the upper-left area, softly rounded top corners, subtly trapezoid side contour, flat standing base, visible bottom thickness, and a naturally stuffed/puffy front surface. This is the product shape standard.
+- Images 3-8 are color and pattern references for the six variants. Preserve the ice cream drip artwork, sprinkles, white melting layer, waffle-cone lower print, fabric texture, zipper location, and metal zipper pull.
+
+Main task:
+Generate a new 12-piece white-background main image that uses the NEW real photo's puffy standing pouch shape for every pouch. Every bag should look realistically filled with soft filler, not flat. The front surface should be gently convex; the base should be thick enough to stand upright; the lower corners should be rounded and softly compressed; the top zipper line should have a mild real-fabric curve rather than a perfectly straight flat line.
+
+Composition:
+- Exactly 12 makeup bags total.
+- 6 color designs, 2 bags per design.
+- Arrange in a neat 4-column x 3-row grid on pure white background.
+- Color order from top-left to bottom-right: blue-white, purple-white, yellow-white, green-white, pink-white, chocolate-white; place the two bags of each color side by side.
+- All pouches face forward with only slight natural product depth, like the new real photo converted to a clean studio catalog view.
+- Products centered and large, occupying about 80-85% of the square frame.
+
+Hard constraints:
+- Each pouch must have exactly one horizontal zipper and exactly one metal zipper pull. Do not create duplicate zippers, second pull tabs, handles, straps, loops, hooks, or accessories.
+- Do not copy only the purple color from Image 2 to all bags; keep all six color variants.
+- Do not invent new colors or patterns. Do not simplify the waffle grid. Do not remove sprinkles.
+- No text, no logo, no watermark, no badges, no props, no hands, no packaging, no lifestyle scene.
+- Background must be pure white for Amazon main image.
+- Realistic ecommerce product photography with sharp fabric texture, accurate print detail, soft diffused studio light, and subtle natural shadows under each pouch.
+
+Output: square Amazon main product image.
+
+Endpoint: /v1/images/edits, fallback /v1/images/generations
+Model: image2
+Size: 1024x1024
+References:
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-current-main-layout-1000.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-7-updated-puffy-purple-1200.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-1-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-2-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-3-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-4-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-5-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-6-900.jpg

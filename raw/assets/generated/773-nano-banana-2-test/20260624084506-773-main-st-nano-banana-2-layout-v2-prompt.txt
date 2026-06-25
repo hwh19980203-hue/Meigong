@@ -1,0 +1,22 @@
+Generate a clean Amazon main image for product 773 God Bless banner set, square 1:1, pure white background.
+
+Reference images define material and single-flag appearance only. Do not copy any reference layout.
+Product appearance: white paper pennant flags, pink scalloped decorative border, pink uppercase serif letters printed on white front, pink cross symbols, pink string, pink bows, small punched holes, realistic paper craft texture.
+
+Exact required layout, total 10 flags only:
+Top row has exactly 3 flags: G | O | D.
+Bottom row has exactly 7 flags: Cross | B | L | E | S | S | Cross.
+There are no cross flags in the top row. There are no flags before G and no flags after D.
+
+Show product only, centered with clean spacing, soft studio lighting, crisp edges, no extra text outside the product letters and cross symbols.
+
+Endpoint: /v1/videos
+Task endpoint: /v1/videos/{task_id}
+Model: nano_banana_2
+Task ID: task_poaSs48Cb6sXj0m7jWBoOmtnz1p4lOoX
+Result URL: https://videos-us3.ss2.life/file2/3ac04889fcc74865b042289d835b1260.png
+
+References:
+D:\黑伞美工\raw\cases\773-两套God Bless拉旗装饰\773-detail-3.jpg
+D:\黑伞美工\raw\cases\773-两套God Bless拉旗装饰\773-extra-a.jpg
+D:\黑伞美工\raw\cases\773-两套God Bless拉旗装饰\773-word-detail.png

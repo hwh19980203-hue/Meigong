@@ -86,6 +86,31 @@ tags:
 
 示例：新娘派对装饰的金色拉旗必须是 `Bride to Be` + 结尾独立钻戒挂件；`Bride` 不能少 `e`，`Be` 后的钻戒挂件不能丢，也不能替代任何字母。
 
+## 固定数量与固定位置结构约束
+
+当产品由可数的字母片、符号片、挂件、配件或多组套装组成时，只写“数量正确”不够，必须同时定义总数、分组数量、逐项顺序和符号位置。
+
+提示词必须写清：
+
+```markdown
+固定结构必须逐项还原，不得省略、合并或用装饰件替代。
+- 每组总件数：[数量]
+- 分组结构：[上层/下层/左侧/右侧等]
+- 从左到右顺序：[逐项列出]
+- 固定符号位置：[符号必须位于哪些字母或部件两侧]
+- 多套合计数量：[数量]
+- 禁止：少件、多件、错位、把蝴蝶结等装饰件当作符号件
+```
+
+质检必须同时检查：
+
+- 单组总件数和多组合计数是否正确
+- 每个字母、符号和配件是否位于指定位置
+- 装饰件是否误替代了产品结构件
+- 总数正确但局部顺序或分组错误的情况
+
+示例：God Bless 拉旗每套必须是上层 `十字架 + G + O + D + 十字架`（5 片），下层 `十字架 + B + L + E + S + S + 十字架`（7 片），合计 12 片、4 个十字架；两套合计 24 片、8 个十字架。蝴蝶结位于绳端，不能替代十字架旗片。
+
 ## 亚马逊真实性约束
 
 亚马逊商品图的第一目标是准确代表所售商品。AI 可以帮助清洁、摆放和增强可读性，但不能把产品变成“更高级但不真实”的版本。
@@ -198,7 +223,135 @@ Codex 生成提示词时必须遵守的规则：
 - 不要使用竞品相似背景或构图
 ```
 
-## 参见
+## Nano Banana 七大提示词模板（来源）
+
+> 以下模板来自 [[wiki/sources/2026-06-24-Nano Banana Pro亚马逊套图提示词模板]]，适用于 Google Nano Banana / Nano Banana Pro 模型。核心方法：**上传实拍图作为参考 + 选对应模板 → 批量出图**。模板中的产品外观描述需根据实际产品替换。
+
+### 1. 主图（白底图）
+
+```text
+Generate a professional Amazon main image. Using the precise appearance of the product from the reference image, a realistic rendering is performed, preserving true colors, proportions, and details. The product is placed in the center of the frame, occupying at least 85% of the space, against a pure white background (RGB 255,255,255). Professional studio lighting is used, with soft, natural shadows, high-brightness illumination, and sharp global focus. No additional props, text, logos, or elements are included. The result is a clean, minimalist, business e-commerce style with ultra-high detail and 4K resolution.
+```
+
+### 2. 生活方式图（场景图）
+
+```text
+Generate an Amazon lifestyle image based on the provided reference image. The image automatically infers the most suitable target users, environment, and benefit presentation method based on product appearance and typical uses. The product must be clearly visible and centered, with natural lighting, realistic proportions and shadows, a comfortable or efficient atmosphere, an overall realistic style, high detail, no text overlays, and a professional Amazon A+ content style.
+```
+
+### 3. 信息图（卖点概览）
+
+```text
+Based on the product in the reference image, generate an Amazon product infographic. Analyze the product's usage scenarios and core functional technologies, and generate a key selling point using a large title in the top white space. Use minimalist arrows to label 2-3 brief material features of the product, leaving natural white space for adding text/labels. The style should be modern and minimalist, with a soft, light gradient background. Use soft studio lighting to eliminate shadows, and achieve 8K resolution for photorealistic results.
+```
+
+### 4. 多角度图
+
+```text
+Based on the product in the reference image, generate one image each: front view, side view, back view, and top view. White background, professional lighting, and photos must be taken strictly according to the proportions shown in the attached image. No modifications to the product design are permitted.
+```
+
+### 5. 材质工艺图
+
+```text
+Generate a detailed Amazon infographic based on the product in the reference image, focusing on materials and craftsmanship. The product is centrally positioned and rendered realistically. Key craftsmanship features are automatically analyzed and highlighted based on visible textures, surface finishes, structural details, seams, and materials. Include zoom-in images, arrows, or labels, along with concise descriptive text. Clean layout, subtle icons, white background, and ultra-sharp text and details create a professional product presentation style.
+```
+
+### 6. 尺寸参数图
+
+```text
+Generates an Amazon-compatible size chart based on the product in the reference image. The product is centered, and parameters such as height, width, depth, weight, and capacity are automatically and concisely labeled based on visible or logical dimensions. Features a minimalist background, sharp lines, and a readable sans-serif font; realistic rendering; high precision; and an e-commerce optimized style.
+```
+
+### 7. 多场景网格图
+
+```text
+Generate an Amazon infographic grid based on the products in the reference images, showcasing multiple real-world usage scenarios for the products in the attached reference photos. Automatically identify 4-6 suitable life scenarios and corresponding benefits based on product type and appearance. Arrange small, realistic scene images in a grid or collage format, with each scene subtly overlaid with brief text describing the benefits or context.
+```
+
+## EvolveAMZ 提示词精炼框架（来源）
+
+> 以下内容来自 [[wiki/sources/2026-06-24-AI电商摄影EvolveAMZ2026指南]]。核心原则：**模糊的提示词产生通用图像**，必须精确到摄影术语。
+
+### 提示词六大要素
+
+有效提示词应同时包含以下 6 个维度：
+
+```text
+[摄影风格] + [光线描述] + [构图细节] + [环境背景] + [材质纹理] + [氛围调性]
+```
+
+示例对比：
+```
+❌ "nice photo of product in kitchen"
+✅ "Product photo on marble kitchen counter, soft natural morning lighting,
+    shallow depth of field, overhead 45-degree angle, premium minimalist aesthetic"
+```
+
+### 五步迭代工作流
+
+1. **生成初稿** — 每次 4-8 个变体
+2. **分析效果** — 评估产品准确性、背景质量
+3. **精炼提示词** — 针对性强化弱点
+4. **跨工具测试** — 同一提示词在不同工具间比较
+5. **终版精修** — 选最优产出，PS 微调
+
+### 合规红线
+
+> 产品准确性是唯一不能打破的规则。AI 应围绕实拍构建环境，而非凭空生成产品。
+
+## Banana（Nano Banana）提示词风格参考
+
+> 当使用 Google Nano Banana（Gemini 系）模型出图时，提示词风格与 image2/传统模型不同。Banana 采用推理引导架构（Plan→Evaluate→Improve），更擅长理解结构化指令，文字渲染更准确，可传入参考图保持主体一致性。
+
+### 与 image2 提示词的风格对比
+
+| 维度 | image2 风格（当前模板） | Banana 风格 |
+|------|-----------------------|-------------|
+| **长度** | 长文本，事无巨细 | 可缩短 30-50%，结构更精炼 |
+| **否定词** | 大量 `No xxx, no xxx` | 正向指令即可，模型会推理规避 |
+| **文字** | 反复强调拼写正确 | 正常描述即可，自检文字准确性 |
+| **布局** | 全写在一段里 | 可拆成步骤 / 分块描述 |
+| **参考图** | 靠文字「match real photos」 | 直接传参考图（最多 14 张） |
+| **主体一致** | 每次独立拼人品 | 参考图锁定，多图更稳定 |
+
+### 对照示例：773 God Bless 首图 ST
+
+**image2 风格（当前）：**
+```text
+Amazon listing image 1 of 7, corrected main image, square 1:1, pure white background. Product-only composition. Use the exact corrected layout: top curved strand spells "GOD" with three pennant flags; bottom curved strand has a pink cross flag on the far left, then "BLESS" across five flags, then a pink cross flag on the far right. All letters must be present and correctly ordered: G O D / B L E S S. The letter G must be a normal uppercase serif G, same height and weight as O and D, with correct proportions like the real photographed G, not oversized, not distorted, not lowercase, not a spiral. Product must match real photos: double-layer paper pennant flags, white front layer, pink scalloped back layer, pink printed uppercase serif letters, pink cross flags, pink bows, small punched holes, white string. Pink bows at the upper string ends. No extra labels, no added numbers, no marketing text, only the actual product letters on the banner. No gold, no metallic finish, no glitter, no orange UI buttons, no watermark. Bright soft studio lighting, crisp edges, realistic Amazon product photography, 1600x1600 style.
+```
+（约 160 词，大量否定约束 + 文字防呆）
+
+**Banana 风格（参考图传入实拍）：**
+```text
+Generate Amazon main image for God Bless banner set, square 1:1, pure white background.
+
+Product appearance is defined by the reference photos:
+- White paper pennant flag as main body
+- Pink scalloped decorative border around the white center
+- Pink serif letters on the white front only
+- Pink cross flags, pink string, pink bows
+- Small punched holes at top corners
+
+Layout (must match reference photo exactly):
+Top row: G — O — D (3 flags)
+Bottom row: Cross — B — L — E — S — S — Cross (7 flags)
+
+Use the real product reference photos as the sole appearance guide.
+Clean Amazon product photography style, soft studio lighting.
+```
+（约 100 词，正向指令 + 参考图驱动）
+
+### Banana 提示词写作要点
+
+```markdown
+1. 结构化分段：任务 → 产品外观 → 布局 → 风格，每段聚焦一个主题
+2. 正向指令优先：说「要什么」而非「不要什么」
+3. 参考图定外观：传入实拍图，用「Product appearance is defined by reference photos」
+4. 文字正常写：不需要额外拼写校验，Banana 自检文字准确性
+5. 布局可直接描述：不需要反复强调禁止事项，模型会推理
+```
 
 - [[wiki/concepts/提示词工程]]
 - [[wiki/concepts/AI生成电商主图]]

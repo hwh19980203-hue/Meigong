@@ -1,0 +1,50 @@
+Create a refined Amazon main image for product 786, a 12-piece ice cream drip makeup bag set.
+
+Input image roles:
+- Image 1 is ONLY the shape, volume, layout, and zipper-pull attitude reference. Use its stronger 3D standing pouch body, side thickness, rounded rectangular silhouette, neat 4-column x 3-row spacing, and the zipper pull hanging downward from the top-left corner. Important: Image 1 has incorrect zipper details and weak/unclear pattern texture, so DO NOT copy its zipper count or blurry/inconsistent texture.
+- Image 2 is the current approved main image reference for the 12-piece color order, product count, and overall Amazon white-background composition.
+- Image 3 is the newest real photo reference for the true product body: upright fabric pouch, slightly curved top zipper line, one metal zipper pull, bottom thickness, soft puffy standing form, and visible woven fabric texture.
+- Images 4-9 are strict product appearance references for the six color variants, ice cream drip art, sprinkles, white melting layer, waffle-cone lower print, fabric texture, zipper position, and metal zipper pull.
+
+Main refinement goal:
+Generate a new 12-piece white-background main image that keeps the clean product count and color order from Image 2, but improves the shape and layout toward Image 1: more dimensional standing pouches, visible side depth, softly rounded rectangular corners, stronger bottom thickness, stable base shadows, and metal zipper pulls that naturally hang downward near the top-left corner.
+
+Critical corrections:
+- Image 1's zipper quantity is wrong. Every pouch in the new image must have EXACTLY ONE zipper seam and EXACTLY ONE metal zipper pull. No double zipper, no second pull, no extra slider, no handle, no strap, no ring accessory beyond the one pull tab.
+- Image 1's print texture is not clear enough. The new image must use sharp, continuous, readable 786 product texture: crisp woven fabric, clear waffle-cone diagonal grid lines, continuous white melting layer, clear colored frosting drips, and clear multicolor sprinkle marks. Do not blur or break the waffle grid.
+
+Composition requirements:
+- Exactly 12 makeup bags total.
+- Exactly 6 color designs, 2 bags per design.
+- Arrange in a neat 4-column x 3-row grid on pure white background.
+- Color order from top-left to bottom-right: blue-white, purple-white, yellow-white, green-white, pink-white, chocolate-white; two bags of each color side by side.
+- All pouches face forward with a slight 3D side/body depth similar to Image 1, not flat cutouts.
+- Product group centered and large, occupying about 80-85% of a square Amazon frame.
+
+Product form requirements:
+- Each pouch should look realistically stuffed and puffy, with convex front fabric, bottom thickness, softly compressed rounded lower corners, and a standing base.
+- Top zipper line should have a subtle fabric curve and real seam detail.
+- The single metal zipper pull should droop downward/diagonally from the top-left area, catching a subtle metallic highlight.
+- Keep the pouch shape and proportions believable for a fabric makeup bag, not inflated like plastic.
+
+Hard constraints:
+- Pure white Amazon main image background, RGB 255,255,255.
+- No text, no logo, no watermark, no badges, no props, no hands, no packaging, no lifestyle background.
+- Do not invent new colors, accessories, patterns, or alternate pouch shapes.
+- Realistic ecommerce product photography, sharp focus, soft diffused studio lighting, subtle shadows under each pouch.
+
+Output: square Amazon main product image.
+
+Endpoint: /v1/images/edits, fallback /v1/images/generations
+Model: image2
+Size: 1024x1024
+References:
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-shape-layout-zipper-down-reference.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-current-new-real-puffy-main-1000.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-7-updated-puffy-purple-1200.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-1-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-2-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-3-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-4-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-5-900.jpg
+D:\黑伞美工\raw\assets\generated\786-冰激凌水滴化妆包\refs-resized\786-real-6-900.jpg

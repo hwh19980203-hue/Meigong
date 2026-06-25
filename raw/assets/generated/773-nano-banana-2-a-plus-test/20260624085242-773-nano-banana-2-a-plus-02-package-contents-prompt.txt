@@ -1,0 +1,21 @@
+Create Amazon A+ image 02 for product 773 God Bless banner set, wide 16:9, clean white and blush pink infographic style.
+
+Use input image 1 only as layout/style reference for the package contents infographic. Use input images 2 and 3 as product appearance references. Keep the product appearance faithful: white paper pennants, pink scalloped decorative trim, pink letters/crosses on the white front, pink string, soft pink bows, small punched holes.
+
+Content to show: full double-pack contents, 2 complete God Bless banner sets. Each set: top strand Cross + G + O + D + Cross, lower strand Cross + B + L + E + S + S + Cross. Each set has 12 flags and 4 bows. Double pack total: 24 flags, 8 cross flags, 8 bows.
+
+English labels to render clearly: "What's Included", "2 Complete Sets", "24 Flags Total", "8 Cross Flags", "8 Pink Bows", "Pink String Included", "Single Paper Sheet", "12 Flags + 4 Bows Per Banner".
+
+No A letter flag. No double-layer material label. No gold, metallic finish, glitter, watermark, brand logo, or extra product types.
+
+Endpoint: /v1/videos
+Task endpoint: /v1/videos/{task_id}
+Model: nano_banana_2
+Aspect ratio: 16:9
+Task ID: task_JUbhDkxuMDjnVQ1fJaY1eojx1kjIe6wn
+Result URL: https://videos-us3.ss2.life/file5/45d53bee982347ad977d2aa2b64dc2db.png
+
+References:
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v4-prompts\20260623-773-a-plus-v4-02-package-contents-prompt-970x600.png
+D:\黑伞美工\raw\assets\generated\773-god-bless-locked-master\20260622-773-approved-double-set-clean-transparent.png
+D:\黑伞美工\raw\assets\generated\773-god-bless-locked-master\20260622-773-approved-product-master.jpg

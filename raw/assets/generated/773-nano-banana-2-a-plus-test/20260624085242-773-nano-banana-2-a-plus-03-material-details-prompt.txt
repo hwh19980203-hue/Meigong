@@ -1,0 +1,23 @@
+Create Amazon A+ image 03 for product 773 God Bless banner set, wide 16:9, premium product detail layout.
+
+Use input image 1 only as layout/style reference for the crafted details infographic. Use the other input images as real product detail references. Keep the appearance faithful: white paper pennant main body, pink scalloped decorative border, pink serif letters and crosses printed on white front, pink string through holes, soft pink bows, single paper sheet.
+
+Main top area: show one complete banner set with exact layout: top strand Cross + G + O + D + Cross; lower strand Cross + B + L + E + S + S + Cross. Exactly 12 flags per set and exactly 4 cross flags.
+
+Bottom detail cards: four clean circular close-up modules labeled exactly: "Single Paper Sheet", "Pre-Punched Holes", "Pink String", "Soft Pink Bows". Show realistic close-ups matching those labels.
+
+Do not use the phrase "Double-Layer Paper". No extra letters beyond GOD / BLESS if visible. No gold, metallic finish, glitter, watermark, brand logo, or unrelated decorations.
+
+Endpoint: /v1/videos
+Task endpoint: /v1/videos/{task_id}
+Model: nano_banana_2
+Aspect ratio: 16:9
+Task ID: task_NAislryN2OW7h3vP5k5lLUJrGRx5crM4
+Result URL: https://videos-us3.ss2.life/file4/cc7b728b911641dea85b64f0a53d2563.png
+
+References:
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v4-prompts\20260623-773-a-plus-v4-03-material-details-prompt-970x600.png
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v4-prompts\source\detail.jpg
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v4-prompts\source\bow.jpg
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v5-candidates\source\cross.jpg
+D:\黑伞美工\raw\assets\generated\773-god-bless-a-plus-v5-candidates\source\letter.jpg

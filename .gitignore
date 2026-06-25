@@ -22,7 +22,13 @@ desktop.ini
 # Temp & output
 tmp/
 output/
-tools/
+tools/*
+!tools/otuapi-image-mcp/
+!tools/otuapi-image-mcp/README.md
+!tools/otuapi-image-mcp/package.json
+!tools/otuapi-image-mcp/package-lock.json
+!tools/otuapi-image-mcp/server.mjs
+tools/otuapi-image-mcp/node_modules/
 
 # Contract artifacts
 contract-*.b64
