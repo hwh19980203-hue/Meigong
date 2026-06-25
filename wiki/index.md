@@ -95,3 +95,4 @@
 
 - [[wiki/workflows/Otuapi做图接口工作流]] — Codex 调用 otuapi `image2`、`nano_banana_2` 和 Gemini 图片模型的固定工作流：Banana 走 `/v1/videos`，生成资产存入 `raw/assets/generated/`，质检终版交付到 `output/imagegen/`（2026-06-25）
 - [[wiki/cases/786-冰激凌水滴化妆包|786 冰激凌水滴化妆包全套主图]] — 7 张主图全部完成交付：ST v6 首图（12包白底组合）+ 6张附图（颜色尺寸/CCT场景/细节/场景1/4格分镜/场景3）；拉链从双拉链→单左上角→朝下纠正，Word样图命名修复 word-2~8→word-1~7（2026-06-25）
+- [[wiki/products/786-冰激凌水滴化妆包-A+图片提示词|786 冰激凌水滴化妆包 A+ 图片提示词]] — 基于 v6 锁定首图母版生成 A+01-A+06 六张模块图提示词（2026-06-25）

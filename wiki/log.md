@@ -492,3 +492,10 @@
 - 稳定资产：`raw/assets/generated/786-冰激凌水滴化妆包/20260625091610-786-st-shape-layout-zipper-down-main-1600.png`
 - 交付文件：`output/imagegen/786-冰激凌水滴化妆包/786-main-shape-layout-zipper-down-1600.png`
 - 提示词归档：`raw/assets/generated/786-冰激凌水滴化妆包/20260625091610-786-st-shape-layout-zipper-down-main-prompt.txt`
+
+## [2026-06-25] update | 锁定 786 v6 首图并生成 A+ 提示词
+
+- 按用户指定，将 `raw/assets/generated/786-main-image-v6.png` 作为 786 当前锁定首图。
+- 整理 A+ 用锁定母版：`raw/assets/generated/786-冰激凌水滴化妆包/786-main-image-v6-locked-master-1600.png`
+- 创建 [[wiki/products/786-冰激凌水滴化妆包-A+图片提示词]]，包含 A+01-A+06 六张模块图提示词。
+- 归档可复制提示词：`raw/assets/generated/786-冰激凌水滴化妆包/786-a-plus-prompts-v1.md`
