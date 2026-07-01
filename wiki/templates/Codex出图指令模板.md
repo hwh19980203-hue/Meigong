@@ -339,4 +339,3 @@ Image 3 是构图 / 氛围参考。
 - [[wiki/workflows/AI生图提示词模板]]
 - [[wiki/workflows/Codex调用GPT作图工作流]]
 - [[wiki/cases/773-两套God Bless拉旗装饰]]
-- [[wiki/cases/786-冰激凌水滴化妆包]]

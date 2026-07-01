@@ -39,7 +39,7 @@ Codex 是黑伞美工部门的辅助工具。
 
 模型由美工按任务选择，但选择原则要统一。
 
-基于 [[wiki/cases/773-两套God Bless拉旗装饰]] 与 [[wiki/cases/786-冰激凌水滴化妆包]] 的实际过程，建议按下面方式判断：
+基于 [[wiki/cases/773-两套God Bless拉旗装饰]] 的实际过程，建议按下面方式判断：
 
 ### 优先用 GPT 的情况
 
@@ -122,7 +122,7 @@ AI 出图效果，80% 取决于输入质量。
 
 好指令不是“写得很长”，而是“让模型少猜”。
 
-结合 773 和 786 的出图过程，一条好指令通常有 7 个特征：
+结合实际出图过程，一条好指令通常有 7 个特征：
 
 ### 1. 先定义任务类型
 
@@ -156,7 +156,7 @@ Image 4 is composition reference only, not product appearance reference.
 
 好的指令会先定义“绝对不能变的东西”。
 
-例如 786 那种写法就比较标准：
+例如下面这种写法就比较标准：
 
 ```text
 Preserve the exact product identity: 12 bags, 6 color designs, 2 bags per design, one zipper and one metal zipper pull per pouch.
@@ -202,7 +202,7 @@ Do not add handles, straps, extra zipper pulls, logos, packaging, hands, or acce
 - 这一轮只修场景氛围
 - 这一轮只修文案层级
 
-773 和 786 的过程都说明，多轮收敛比每轮大改稳定得多。
+773 的过程说明，多轮收敛比每轮大改稳定得多。
 
 ### 7. 明确写出不要什么
 
@@ -288,7 +288,7 @@ Avoid:
 No logo, no packaging, no hands, no extra accessories, no changed product shape.
 ```
 
-## 从 773 和 786 总结出的指令经验
+## 从 773 总结出的指令经验
 
 ### 773 给出的经验
 
@@ -296,13 +296,6 @@ No logo, no packaging, no hands, no extra accessories, no changed product shape.
 - A+ 和场景图不能默认让模型重画产品主体
 - 当产品结构复杂、装饰件多、形状容易漂移时，必须先锁母版
 - 好指令要明确“产品由母版提供，AI 只负责背景、版式、氛围”
-
-### 786 给出的经验
-
-- 数量、颜色、拉链数量这类信息必须写死
-- “鼓包感”“更饱满”这类目标要配实拍参考，否则模型会自己想象
-- 参考图角色分配写清楚后，稳定性明显更高
-- 一套提示词里应该有全局硬约束，再加每张图的单独用途
 
 ### 最值得同事记住的一句话
 
