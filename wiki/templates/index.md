@@ -13,6 +13,7 @@ created: 2026-06-11
 ## PSD 模板
 
 - [[wiki/templates/AI作图任务标准输入表|AI 作图任务标准输入表]] — AI 作图需求进入 Codex/GPT 流程前的标准输入格式
+- [[wiki/templates/Codex出图指令模板|Codex 出图指令模板]] — 给美工直接复制使用的 Codex 出图话术模板，覆盖主图、A+、场景图、信息图和改图
 - [[wiki/templates/AI作图需求缺口补充表|AI 作图需求缺口补充表]] — 飞书多维表格已预填产品基础信息后，开发补充图片表达缺口、美工补充视觉判断的模板
 - [[wiki/templates/PSD主图模板|PSD 主图模板]] — 主图 PSD 模板的图层结构、尺寸规范与使用说明
 

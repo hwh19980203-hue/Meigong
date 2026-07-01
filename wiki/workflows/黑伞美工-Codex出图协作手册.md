@@ -22,13 +22,45 @@ Codex 是黑伞美工部门的辅助工具。
 把运营、开发、老板给的零散信息整理成能出图的明确任务。
 
 2. 帮我们做图  
-结合参考图、产品资料、历史案例和规则，辅助生成更接近目标的图。
+结合参考图、产品资料、历史案例和规则，辅助调用 GPT 或 Banana 生成更接近目标的图。
 
 3. 帮我们改图  
 根据反馈做多轮收敛，而不是每次推翻重来。
 
 4. 帮我们少走弯路  
 通过知识库调用历史经验、固定母版、失败案例和规范，提高出图成功率。
+
+## 模型定位
+
+当前出图模型分工如下：
+
+- GPT：负责更强调产品准确性、数量准确性、结构约束和参考图还原的任务
+- Banana：负责更强调氛围、版式、场景感和 A+ / 场景图探索的任务
+
+模型由美工按任务选择，但选择原则要统一。
+
+基于 [[wiki/cases/773-两套God Bless拉旗装饰]] 与 [[wiki/cases/786-冰激凌水滴化妆包]] 的实际过程，建议按下面方式判断：
+
+### 优先用 GPT 的情况
+
+- 主图、白底图、尺寸图、信息图
+- 产品数量、配色、结构不能错
+- 已有实拍图、白底图、锁定母版，需要严格参考
+- 当前轮次重点是“修准”，不是“找感觉”
+
+### 可以优先试 Banana 的情况
+
+- A+ 氛围图
+- 场景图
+- 礼品感、节日感、桌面氛围等视觉探索
+- 产品主体已经锁定，只需要换背景、换版式、换场景气氛
+
+### 不管用哪个模型，都必须遵守
+
+- 先给参考图
+- 先写清楚不可变约束
+- 如果产品已有锁定母版，禁止整图重绘产品主体
+- 需要高一致性时，优先“锁定产品母版 + AI 做背景/场景 + 分层合成”
 
 ## 核心原则
 
@@ -85,6 +117,196 @@ AI 出图效果，80% 取决于输入质量。
 
 只要是产品图，尤其是主图、A+、场景图，必须尽量带参考图。  
 产品一致性永远优先于场景花哨。
+
+## 什么是好指令
+
+好指令不是“写得很长”，而是“让模型少猜”。
+
+结合 773 和 786 的出图过程，一条好指令通常有 7 个特征：
+
+### 1. 先定义任务类型
+
+先说清楚这张图到底是什么：
+
+- 主图
+- A+ 英雄图
+- A+ 信息图
+- 场景图
+- 细节图
+- 尺寸图
+
+不要只说“做一张图”，模型不知道你要卖货、讲细节，还是做氛围。
+
+### 2. 先定义参考图角色
+
+好的指令会明确每张参考图是干什么的。
+
+例如：
+
+```text
+Image 1 is the locked product master. Use it as the exact product appearance source.
+Image 2 and 3 are real product references for fabric texture, zipper detail, and printed pattern.
+Image 4 is composition reference only, not product appearance reference.
+```
+
+这一步非常重要。  
+同事最容易犯的错，就是把所有参考图一股脑丢进去，但不说谁是主体参考、谁只是风格参考。
+
+### 3. 先写全局硬约束
+
+好的指令会先定义“绝对不能变的东西”。
+
+例如 786 那种写法就比较标准：
+
+```text
+Preserve the exact product identity: 12 bags, 6 color designs, 2 bags per design, one zipper and one metal zipper pull per pouch.
+Do not redraw the product into a different pouch shape.
+Do not add handles, straps, extra zipper pulls, logos, packaging, hands, or accessories that are not included.
+```
+
+这类约束的价值是把最容易错的点提前锁死。
+
+### 4. 场景、构图、文案要分开写
+
+好的指令不会把所有要求揉成一段。  
+而是拆成几个部分：
+
+- Scene
+- Composition
+- Text
+- Product rules
+- Avoid
+
+这样模型更容易稳定执行，也方便后面单独修改某一块。
+
+### 5. 文案要短，不要贪多
+
+实际经验里，图上的英文越多，越容易出错。  
+尤其是 A+、信息图、尺寸图，尽量：
+
+- 标题 1 行
+- 副标题 1 行
+- 标签词尽量短
+
+不要在同一张图里塞太多长句子。
+
+### 6. 一轮只解决一个核心问题
+
+好的指令不是一轮里同时改 10 件事。  
+而是当前轮次只盯住一个主目标。
+
+例如：
+
+- 这一轮只修产品外形
+- 这一轮只修拉链数量
+- 这一轮只修场景氛围
+- 这一轮只修文案层级
+
+773 和 786 的过程都说明，多轮收敛比每轮大改稳定得多。
+
+### 7. 明确写出不要什么
+
+很多错误不是因为“没说要什么”，而是因为“没说不要什么”。
+
+例如：
+
+- No logo
+- No packaging
+- No hands
+- No extra accessories
+- No changed dimensions
+- No new colors
+- No second zipper
+
+“Avoid” 部分通常能明显减少返工。
+
+## 好指令的标准结构
+
+以后写指令，尽量按这个骨架：
+
+```text
+Task:
+这是什么图，用在什么位置
+
+Input image roles:
+每张参考图分别负责什么
+
+Canvas:
+尺寸、比例、裁切方式
+
+Scene / Composition:
+场景、构图、主体位置、信息布局
+
+Text:
+标题、副标题、标签词
+
+Product rules:
+产品不可变约束
+
+Avoid:
+明确不要出现什么
+```
+
+## 坏指令和好指令对比
+
+### 坏指令
+
+```text
+帮我做一张这个产品的 A+ 图，做得高级一点，好看一点，可爱一点，适合美国市场。
+```
+
+问题：
+
+- 不知道是什么模块
+- 不知道参考哪张图
+- 不知道产品哪里不能变
+- 不知道“高级”和“可爱”怎么落地
+
+### 好指令
+
+```text
+Create an Amazon A+ hero banner for this product.
+
+Image 1 is the locked product master and must be used as the exact product appearance source.
+Image 2 and 3 are real product references for texture, zipper detail, and printed pattern.
+Image 4 is atmosphere reference only.
+
+Canvas:
+Final crop 970x600 px, wide horizontal layout.
+
+Scene:
+Bright pastel tabletop scene with soft dessert-themed accents.
+Keep the product group as the hero in the center or lower-center area.
+
+Text:
+Main headline only, short and clean.
+
+Product rules:
+Preserve the exact quantity, color order, pouch shape, zipper count, and printed artwork.
+
+Avoid:
+No logo, no packaging, no hands, no extra accessories, no changed product shape.
+```
+
+## 从 773 和 786 总结出的指令经验
+
+### 773 给出的经验
+
+- 只靠文字描述，不足以锁住产品外形
+- A+ 和场景图不能默认让模型重画产品主体
+- 当产品结构复杂、装饰件多、形状容易漂移时，必须先锁母版
+- 好指令要明确“产品由母版提供，AI 只负责背景、版式、氛围”
+
+### 786 给出的经验
+
+- 数量、颜色、拉链数量这类信息必须写死
+- “鼓包感”“更饱满”这类目标要配实拍参考，否则模型会自己想象
+- 参考图角色分配写清楚后，稳定性明显更高
+- 一套提示词里应该有全局硬约束，再加每张图的单独用途
+
+### 最值得同事记住的一句话
+
+好指令 = 任务明确 + 参考图分工明确 + 不可变约束明确 + 不要项明确。
 
 ## 标准提需求格式
 
@@ -293,6 +515,7 @@ AI 出图效果，80% 取决于输入质量。
 
 ## 参见
 
+- [[wiki/templates/Codex出图指令模板]]
 - [[wiki/workflows/Codex调用GPT作图工作流]]
 - [[wiki/workflows/AI生图提示词模板]]
 - [[wiki/workflows/Otuapi做图接口工作流]]
