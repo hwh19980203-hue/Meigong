@@ -463,3 +463,47 @@
 - 记录 786 首图重修失败教训：Banana 输出和实拍拼版均未达到产品实物一致性与主图美观标准，失败稿不进入 `output/imagegen/`，也不作为最终母版引用。
 - 更新 `AGENTS.md` 和 [[wiki/workflows/Otuapi做图接口工作流]]：同一任务连续 2 次 API 出图明显偏离产品实物、核心版式或用户明确要求时，必须暂停继续调用接口，先向用户说明失败原因和替代方案。
 - 更新 [[wiki/products/786-冰激凌水滴化妆包]] 与 [[wiki/cases/786-冰激凌水滴化妆包]]：后续不得继续无计划调用 Banana 重做本首图，需先改为人工 PS、固定母版分层修图或补拍整套实物方案。
+
+## [2026-07-29] imagegen | 24英寸蓝白泳圈儿童场景图
+
+- 未调用 otuapi，改用内置图像编辑能力完成 3 张儿童泳池场景图。
+- 第四张用户产品图作为产品母版，前三张分别作为构图参考。
+- 比例硬门禁：充气外径约 52 cm、内径约 24 cm、环体径向厚度约 14 cm。
+- 稳定资产保存到 `raw/assets/generated/24in-blue-white-swim-ring-kids-01.png` 至 `03.png`。
+- 正式交付保存到 `output/imagegen/24英寸蓝白泳圈/`。
+- 新增 [[wiki/products/待编号-24英寸蓝白泳圈]] 与 [[wiki/cases/2026-07-29-24英寸蓝白泳圈-儿童场景图]]，产品编号和所属店铺待补充。
+
+## [2026-07-29] imagegen | 多尺寸复古泳圈 A+ 四图
+
+- 未调用 otuapi，使用内置图像编辑能力修改 4 张 A+ 横版图片。
+- 规格与人物依次对应：儿童 × 60 cm 蓝白款、青少年 × 80 cm 蓝白款、成年女性 × 88 cm 蓝白款、成年男性 × 80 cm 粉白款。
+- 高分辨率稳定资产保存到 `raw/assets/generated/vintage-swim-ring-aplus-01-child-60cm.png` 至 `04-man-pink-80cm.png`。
+- 970 × 600 px 正式交付保存到 `output/imagegen/多尺寸复古泳圈-A+/`。
+- 新增 [[wiki/products/待编号-多尺寸复古泳圈]] 与 [[wiki/cases/2026-07-29-多尺寸复古泳圈-A+四图]]；产品编号、所属店铺和站点待补充。
+
+## [2026-07-29] revision | A+04 四人四尺寸同框
+
+- 将第四张 A+ 改为四人同框：儿童、青少年、成年女性、成年男性。
+- 四人从左到右分别使用 60 cm 蓝白、80 cm 蓝白、88 cm 蓝白、80 cm 粉白泳圈。
+- 按同一景深校准可见外径比例；两只 80 cm 泳圈基本等大，60 cm 款明显小于 88 cm 款。
+- 新版稳定资产：`raw/assets/generated/vintage-swim-ring-aplus-04-four-sizes-group.png`。
+- 970 × 600 px 交付文件：`output/imagegen/多尺寸复古泳圈-A+/vintage-swim-ring-aplus-04-four-sizes-group.png`。
+- 旧版单男性 A+04 保留为历史稿，不作为当前第四张引用。
+
+## [2026-07-29] revision | A+01 右侧四格匹配四类人群与尺寸
+
+- 仅调整第一张 A+ 的右侧四个六边形场景图。
+- 四格依次为：儿童 × 60 cm 蓝白、青少年 × 80 cm 蓝白、成年女性 × 88 cm 蓝白、成年男性 × 80 cm 粉白。
+- 左侧蓝白和粉白主产品、海滩背景及标题 `VINTAGE SWIMMING CIRCLE` 保持原布局。
+- 新版稳定资产：`raw/assets/generated/vintage-swim-ring-aplus-01-four-audiences-four-sizes.png`。
+- 970 × 600 px 交付文件：`output/imagegen/多尺寸复古泳圈-A+/vintage-swim-ring-aplus-01-four-audiences-four-sizes.png`。
+- 旧版儿童四格 A+01 保留为历史稿，不作为当前第一张引用。
+
+## [2026-07-29] revision | A+04 家庭海边场景化重做
+
+- 根据用户反馈，停止使用四人站立举圈的生硬尺寸对比构图，改为自然家庭海边浅水互动。
+- 人物与产品映射：儿童 × 60 cm 蓝白、青少年 × 80 cm 蓝白、成年女性 × 80 cm 粉白、成年男性 × 88 cm 最大蓝白款。
+- 父亲的 88 cm 泳圈在画面中明确为最大；青少年与母亲的两只 80 cm 泳圈保持接近的物理尺寸；儿童 60 cm 款明显更小。
+- 新版稳定资产：`raw/assets/generated/vintage-swim-ring-aplus-04-family-beach-four-sizes-v2.png`。
+- 970 × 600 px 正式交付：`output/imagegen/多尺寸复古泳圈-A+/vintage-swim-ring-aplus-04-family-beach-four-sizes-v2.png`。
+- 旧版站立比较图保留为历史稿，不作为当前 A+04 引用。
